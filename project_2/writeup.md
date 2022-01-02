@@ -14,9 +14,10 @@ Please use this starter template to answer the following questions:
   3. the truck side mirrors.
   4. the tyres.
 
-:-------------------------------------------------:|:-------------------------------------------------:
-![truck-trailer-1](img/10.png "truck-trailer-1]")  |  ![truck-trailer-2](img/11.png "truck-trailer-2]")
-![truck-trailer-3](img/12.png "truck-trailer-3]")  |  ![truck-trailer-4](img/13.png "truck-trailer-4]")
+![truck-trailer-1](img/10.png "truck-trailer-1]")
+![truck-trailer-2](img/11.png "truck-trailer-2]")
+![truck-trailer-3](img/12.png "truck-trailer-3]")
+![truck-trailer-4](img/13.png "truck-trailer-4]")
 ![truck-trailer-5](img/14.png "truck-trailer-5]")
 
 
@@ -25,9 +26,11 @@ Please use this starter template to answer the following questions:
   2. the license plates place shows no pcl, maybe the reflective material is diffusive.
   3. the side mirrors.
   4. the tyres.
-:-------------------------------------------:|:-------------------------------------------:
-![car-queue-1](img/20.png "car-queue-1]")    |    ![car-queue-2](img/21.png "car-queue-2]")
-![car-queue-3](img/22.png "car-queue-3]")    |    ![car-queue-4](img/23.png "car-queue-4]")
+
+![car-queue-1](img/20.png "car-queue-1]")
+![car-queue-2](img/21.png "car-queue-2]")
+![car-queue-3](img/22.png "car-queue-3]")
+![car-queue-4](img/23.png "car-queue-4]")
 ![car-queue-5](img/24.png "car-queue-5]")
 
 ####Step #2:
