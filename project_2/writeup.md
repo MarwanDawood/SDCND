@@ -33,10 +33,10 @@ Please use this starter template to answer the following questions:
 ![car-queue-4](img/23.png "car-queue-4]")
 ![car-queue-5](img/24.png "car-queue-5]")
 
-####Step #2:
+#### Step #2:
   Convert the point-cloud x-y coordinates into Birds-Eye View (BEV). The intensity channel shall be plotted as well using OpenCV in 2D image showing reflection intensity based on type of material. The height channel shall be plotted as well using OpenCV based on z-axis value of a point.
 
-####Step #3:
+#### Step #3:
   A pre-trianed Feature Pyramid Network Residual Neural Network (FPN ResNet) is used to detect vehicles in the given image frames.
   The NN configuration is as following:
     number of layers = 18
@@ -46,7 +46,7 @@ Please use this starter template to answer the following questions:
 
   The detected objects in BEV coordinate space must be converted into metric coordinates in vehicle space (3D bounding boxes).
 
-####Step #4:
+#### Step #4:
   Calculate precision and recall to understand system performance.
 
 ### 2. Do you see any benefits in camera-lidar fusion compared to lidar-only tracking (in theory and in your concrete results)?
