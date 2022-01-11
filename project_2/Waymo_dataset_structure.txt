@@ -1,0 +1,37 @@
+-- Frame
+   |-- images ⇒ one branch for each entry in CameraName
+      |-- name (CameraName)
+      |-- image
+      |-- pose
+      |-- velocity (v_x, v_y, v_z, w_x, w_y, w_z)
+      |-- pose_timestamp
+      |-- shutter
+      |-- camera_trigger_time
+      |-- camera_readout_done_time
+   |-- Context
+      |-- name
+      |-- camera_calibrations
+      |-- laser_calibrations
+          |-- beam_inclination_min
+          |-- beam_inclination_max
+      |-- Stats
+      |-- laser_object_counts
+      |-- camera_object_counts
+      |-- time_of_day
+      |-- location
+      |-- weather
+   |-- timestamp_micros
+   |-- pose
+   |-- lasers ⇒ one branch for each entry in LaserName
+        |-- name (LaserName)
+        |-- ri_return1 (RangeImage class)
+            |-- range_image_compressed
+            |-- camera_projection_compressed
+            |-- range_image_pose_compressed
+            |-- range_image
+        |-- ri_return2 (same as ri_return1)
+   |-- laser_labels
+   |-- projected_lidar_labels (same as camera_labels)
+   |-- camera_labels
+   |-- no_label_zones
+   
