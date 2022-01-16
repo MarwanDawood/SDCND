@@ -116,7 +116,6 @@ class Trackmanagement:
             track = self.track_list[i]
             # check visibility
             if meas_list: # if not empty
-                print('list is not empty')
                 if meas_list[0].sensor.in_fov(track.x):
                     # your code goes here
                     track.state = 'tentative'
@@ -124,10 +123,16 @@ class Trackmanagement:
                         track.score -= 1./params.window
 
         # delete old tracks
+        ghost_threshold = 1. / params.window + 0.1
+
         for track in self.track_list:
-            if (track.P[0,0] >= params.max_P or track.P[1,1] >= params.max_P) and track.score < params.delete_threshold:
-                self.delete_track(track)
-                print('track deleted')
+            if (track.state == 'initialized') or (track.state == 'tentative'):
+                if ((track.P[0,0] > params.max_P) or (track.P[1,1] > params.max_P) or \
+                    (track.state == 'tentative' and track.score < ghost_threshold)):
+                    self.delete_track(track)
+            elif track.state == 'confirmed':
+                if track.score < params.delete_threshold:
+                    self.delete_track(track)
 
         ############
         # END student code
@@ -158,10 +163,12 @@ class Trackmanagement:
         # - set track state to 'tentative' or 'confirmed'
         ############
 
-        track.score += 1./params.window
-        if track.score >= params.confirmed_threshold:
+        if track.score + 1./params.window < 1:
+            track.score += 1./params.window
+
+        if track.score >= params.confirmed_threshold and track.state == 'tentative':
             track.state = 'confirmed'
-        else:
+        elif track.state == 'initialized':
             track.state = 'tentative'
 
         ############
