@@ -26,6 +26,9 @@ The RMSE and the amout of detected ghosts shall decrease. The track states shall
 Camera calibration affected the measurements that it could not support the LiDAR measurements, even it increased its covariance which lead to lower track score and eventually deleting the track.
 No confirmed tracks were detected with the association of camera because of higher covariance, in contrast with the measurements with LiDAR only which gave results conforming to the ground truth.
 
+lidar_camera_tracking_results
+![lidar-camera-video](img/lidar_camera_tracking_results.avi "lidar-camera-video]")
+
 ### 3. Which challenges will a sensor fusion system face in real-life scenarios? Did you see any of these challenges in the project?
 Camera calibration is one of the challenges.
 
