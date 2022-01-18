@@ -171,7 +171,6 @@ def compute_performance_stats(det_performance_all):
 
     stdev__devz = np.std(devs_z_all)
     mean__devz = np.mean(devs_z_all)
-    #std_dev_x = np.std(devs_x)
 
     # plot results
     data = [precision, recall, ious_all, devs_x_all, devs_y_all, devs_z_all]

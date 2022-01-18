@@ -102,7 +102,11 @@ class Association:
         ############
 
         # degree of freedom is 2 since we don't expect the vehicle to be be going up or down a hill
-        df = sensor.dim_meas - 1
+        if sensor.name == "lidar":
+            df = 2 # LiDAR DOF, features = (x,y,z)
+        elif sensor.name == "camera":
+            df = 1 # camera DOF,features = (x,y)
+
         # check if measurement lies inside gate
         limit = chi2.ppf(params.gating_threshold, df)
         if MHD < limit:

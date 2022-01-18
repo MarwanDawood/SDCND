@@ -49,9 +49,9 @@ class Filter:
         q2 = ((dt**2)/2) * q
         q3 = dt * q
         Q = np.zeros((params.dim_state, params.dim_state))
-        Q[0,0] = Q[1,1] = q1
-        Q[0,2] = Q[1,3] = Q[2,0] = Q[3,1] = q2
-        Q[2,2] = Q[3,3] = q3
+        Q[0,0] = Q[1,1] = Q[2,2] = q1
+        Q[0,3] = Q[1,4] = Q[2,5] = Q[3,0] = Q[4,1] = Q[5,2] = q2
+        Q[3,3] = Q[4,4] = Q[5,5] = q3
 
         return Q
 
