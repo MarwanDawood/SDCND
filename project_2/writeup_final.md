@@ -27,6 +27,7 @@ Camera calibration affected the measurements that it could not support the LiDAR
 No confirmed tracks were detected with the association of camera because of higher covariance, in contrast with the measurements with LiDAR only which gave results conforming to the ground truth.
 
 To convert png images into video, use this command
+
 `ffmpeg -framerate 5 -pattern_type glob -i '*.png' -c:v ffv1 lidar_tracking_results.avi`
 
 - ![lidar-only-video](img/lidar_tracking_results.avi "lidar-only-video]")
@@ -42,10 +43,14 @@ Camera calibration is one of the challenges.
 
 ### Interesting links for further study:
 - If you want to deepen your knowledge in sensor fusion, you can take the Sensor Fusion nanodegree:
+
   https://www.udacity.com/course/sensor-fusion-engineer-nanodegree--nd313
 - Here is the PyTorch documentation, which is extensive, in case you want to learn more about PyTorch:
+
   https://pytorch.org/docs/stable/index.html
 - The Wikipedia article about Extended Kalman Filters is very informative, in case you want to deepen your knowledge of EKF:
-  https://en.wikipedia.org/wiki/Extended_Kalman_
+
+  https://en.wikipedia.org/wiki/Extended_Kalman_filter
 - A reference link for understanding Sensor Fusion and Object Tracking:
+
   https://www.mathworks.com/videos/series/understanding-sensor-fusion-and-tracking.html
