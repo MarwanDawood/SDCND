@@ -23,7 +23,7 @@ def delete_folder(path):
 def split_files(count, path, files):
     for i in range(count):
         p = files.pop()
-        os.symlink('preprocessed_data/' + p, path + p)
+        os.symlink(os.getcwd() + '/waymo/' + p, os.getcwd() + path + p)
     print(path + " files has been splitted successfully!")
 
         
@@ -33,13 +33,13 @@ def split(data_dir):
     same directory. This folder should be named train, val and test.
 
     args:
-        - data_dir [str]: data directory, /home/workspace/data/preprocessed_data
+        - data_dir [str]: data directory, /home/workspace/data/waymo
     """
     # TODO: Complete this function
     os.chdir("data")
     total = 0
     files = []
-    src_path = data_dir + "/preprocessed_data/"
+    src_path = data_dir + "/waymo/"
     
     for file in os.listdir(src_path):
         if file.endswith(".tfrecord"):
@@ -59,9 +59,9 @@ def split(data_dir):
     create_folder(data_dir, 'test/')
     create_folder(data_dir, 'val/')
     
-    split_files(train, 'train/', files)
-    split_files(test, 'test/', files)
-    split_files(val, 'val/', files)
+    split_files(train, '/train/', files)
+    split_files(test, '/test/', files)
+    split_files(val, '/val/', files)
     
 
 if __name__ == "__main__": 
