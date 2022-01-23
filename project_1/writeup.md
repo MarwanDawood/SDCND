@@ -34,9 +34,9 @@ Similar in the evaluation, the observation of accuracy will help determining if 
 12. Improve the performance.
 
 ### Monitoring the GPU and killing processes
-sudo fuser -v /dev/nvidia0
-sudo kill -9 <PID>
-nvidia-smi
+`sudo fuser -v /dev/nvidia0`
+`sudo kill -9 <PID>`
+`nvidia-smi`
 
 ### Importance of object detection in SDC:
 Modern SDC use several sensors for object detection and classificaion, the latter one can be done only by cameras, their output is then fed to neural networks to achieve that.
@@ -63,9 +63,13 @@ This section should detail the cross validation strategy and justify your approa
 ### Training
 #### Reference experiment #1
 The learning rate is high, the accuracy is low for this dataset.
+<img src="training/exp0/exp1_loss.png"/>
+<img src="training/exp0/exp1_lr.png"/>
 
 #### Reference experiment #2
-Data augmentation plus Adam optimizer are introduced.
+Data augmentation is added to improve accuracy. Adam optimizer is introduced to improve learning.
+<img src="training/exp1/exp2_loss.png"/>
+<img src="training/exp1/exp2_lr.png"/>
 
 ## Improve on the reference
 ### SGD optimization algorithm
