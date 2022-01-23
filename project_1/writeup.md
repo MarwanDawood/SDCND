@@ -29,8 +29,8 @@ Similar in the evaluation, the observation of accuracy will help determining if 
 10. Evaluate the model by running
 `python training/model_main_tf2.py --model_dir=training/reference/ --pipeline_config_path=training/reference/pipeline_new.config --checkpoint_dir=training/reference/`
 11. Export result and create animation by running
-`python training/exporter_main_v2.py --input_type image_tensor --pipeline_config_path reference/pipeline_new.config/ --trained_checkpoint_dir reference/ --output_directory exp1/exported_model/`
-`python training/inference_video.py -labelmap_path label_map.pbtxt --model_path training/exp1/exported_model/saved_model --tf_record_path /home/workspace/data/test/tf.record --config_path training/exp1/pipeline_new.config --output_path animation.mp4`
+`python exporter_main_v2.py --input_type image_tensor --pipeline_config_path training/reference/pipeline_new.config --trained_checkpoint_dir training/reference/ --output_directory training/exp2/exported_model/`
+`python inference_video.py --labelmap_path label_map.pbtxt --model_path training/exp2/exported_model/saved_model --tf_record_path /home/workspace/data/test/\*\.tfrecord --config_path training/exp2/exported_model/pipeline.config --output_path training/exp2/animation.gif`
 12. Improve the performance.
 
 ### Monitoring the GPU and killing processes
@@ -67,16 +67,22 @@ The learning rate is high, the accuracy is low for this dataset.
 <img src="training/exp0/exp1_lr.png"/>
 
 #### Reference experiment #2
-Data augmentation is added to improve accuracy. Adam optimizer is introduced to improve learning.
+Data augmentation is added to improve accuracy.
 <img src="training/exp1/exp2_loss.png"/>
 <img src="training/exp1/exp2_lr.png"/>
+
+#### Reference experiment #3
+Adam optimizer is introduced with constant learning rate.
+<img src="training/exp2/exp3_loss.png"/>
+<img src="training/exp2/exp3_lr.png"/>
 
 ## Improve on the reference
 ### SGD optimization algorithm
 Momentum is a method that helps accelerate SGD in the relevant direction and dampens oscillation.
 Adaptive Moment Estimation (Adam) is a method that computes adaptive learning rates for each parameter. In addition to storing an exponentially decaying average of past squared gradients, it also keeps an exponentially decaying average of past gradients, similar to momentum. Whereas momentum can be seen as a ball running down a slope, Adam behaves like a heavy ball with friction, which thus prefers flat minima in the error surface.
 
-Therefore Adam is used in this model.
+https://github.com/tensorflow/models/blob/master/research/object_detection/protos/optimizer.proto
+Therefore Adam is used in this model with constant learning rate.
 
 #### Data augmentation
 The following image transformation are applied to the dataset during training, the choosing criteria is to mimic the real-world scenarios, therefore image padding, rotation are not selected, also transformation related to resolution are not selected since it will have a big impact on training and this is not needed at an early stage of model development:
@@ -89,3 +95,4 @@ The following image transformation are applied to the dataset during training, t
 - random_self_concat_image
 - autoaugment_image
 - adjust_gamma
+- random_resize_method 
