@@ -19,19 +19,20 @@ Similar in the evaluation, the observation of accuracy will help determining if 
 4. Analyse exploratory data in `analysis` folder by running
 `./analysis/launch_jupyter.sh`
 5. Configure the pipeline configuration file by running
-`python edit_config.py --train_dir /home/workspace/data/train/ --eval_dir /home/workspace/data/val/ --batch_size 4 --checkpoint ./training/pretrained-models/ssd_resnet50_v1_fpn_640x640_coco17_tpu-8/checkpoint/ckpt-0 --label_map analysis/label_map.pbtxt`
-6. Move the generated file `pipeline_new.config` into `training/reference/` and modify the segments paths inside it to the existing ones after the splitting.
-7. Open tensorboard statistics by running the package
-`python -m tensorboard.main --logdir training/reference/` then `tensorboard --logdir=train`
-8. Remember to clean the content of `training/reference/` except for `pipeline_new.config` to save space.
-9. Train the model by running
-`python training/model_main_tf2.py --model_dir=training/reference/ --pipeline_config_path=training/reference/pipeline_new.config`
-10. Evaluate the model by running
-`python training/model_main_tf2.py --model_dir=training/reference/ --pipeline_config_path=training/reference/pipeline_new.config --checkpoint_dir=training/reference/`
-11. Export result and create animation by running
-`python exporter_main_v2.py --input_type image_tensor --pipeline_config_path training/reference/pipeline_new.config --trained_checkpoint_dir training/reference/ --output_directory training/exp2/exported_model/`
-`python inference_video.py --labelmap_path label_map.pbtxt --model_path training/exp2/exported_model/saved_model --tf_record_path /home/workspace/data/test/\*\.tfrecord --config_path training/exp2/exported_model/pipeline.config --output_path training/exp2/animation.gif`
-12. Improve the performance.
+`python edit_config.py --train_dir /home/workspace/data/train/ --eval_dir /home/workspace/data/val/ --batch_size 4 --checkpoint ./experiments/pretrained-models/ssd_resnet50_v1_fpn_640x640_coco17_tpu-8/checkpoint/ckpt-0 --label_map analysis/label_map.pbtxt`
+6. Set current directory to `experiments`
+7. Move the generated file `pipeline_new.config` into `reference/` and modify the segments paths inside it to the existing ones after the splitting.
+8. Open tensorboard statistics by running the package
+`python -m tensorboard.main --logdir reference/` then `tensorboard --logdir=train`
+9. Remember to clean the content of `reference/` except for `pipeline_new.config` to save space.
+10. Train the model by running
+`python model_main_tf2.py --model_dir=reference/ --pipeline_config_path=reference/pipeline_new.config`
+11. Evaluate the model by running
+`python model_main_tf2.py --model_dir=reference/ --pipeline_config_path=reference/pipeline_new.config --checkpoint_dir=reference/`
+12. Export result and create animation by running
+`python exporter_main_v2.py --input_type image_tensor --pipeline_config_path reference/pipeline_new.config --trained_checkpoint_dir reference/ --output_directory exp5/exported_model/`
+`python inference_video.py --labelmap_path label_map.pbtxt --model_path exp5/exported_model/saved_model --tf_record_path /home/workspace/data/test/\*\.tfrecord --config_path exp5/exported_model/pipeline.config --output_path exp5/animation.gif`
+13. Improve the performance.
 
 ### Monitoring the GPU and killing processes
 `sudo fuser -v /dev/nvidia0`
@@ -63,18 +64,29 @@ This section should detail the cross validation strategy and justify your approa
 ### Training
 #### Reference experiment #1
 The learning rate is high, the accuracy is low for this dataset.
-<img src="training/exp0/exp1_loss.png"/>
-<img src="training/exp0/exp1_lr.png"/>
+<img src="training/exp0/loss.png"/>
+<img src="training/exp0/lr.png"/>
 
 #### Reference experiment #2
 Data augmentation is added to improve accuracy.
-<img src="training/exp1/exp2_loss.png"/>
-<img src="training/exp1/exp2_lr.png"/>
+<img src="training/exp1/loss.png"/>
+<img src="training/exp1/lr.png"/>
 
 #### Reference experiment #3
 Adam optimizer is introduced with constant learning rate.
-<img src="training/exp2/exp3_loss.png"/>
-<img src="training/exp2/exp3_lr.png"/>
+<img src="training/exp2/loss.png"/>
+<img src="training/exp2/lr.png"/>
+
+#### Reference experiment #4
+Parameter tuning.
+<img src="training/exp3/loss.png"/>
+<img src="training/exp3/lr.png"/>
+<img src="training/exp3/acc.png"/>
+
+#### Reference experiment #5
+Parameter tuning.
+<img src="training/exp4/loss.png"/>
+<img src="training/exp4/acc.png"/>
 
 ## Improve on the reference
 ### SGD optimization algorithm
@@ -95,4 +107,4 @@ The following image transformation are applied to the dataset during training, t
 - random_self_concat_image
 - autoaugment_image
 - adjust_gamma
-- random_resize_method 
+- random_resize_method
