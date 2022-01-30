@@ -64,29 +64,29 @@ This section should detail the cross validation strategy and justify your approa
 ### Training
 #### Reference experiment #1
 The learning rate is high, the accuracy is low for this dataset.
-<img src="training/exp0/loss.png"/>
-<img src="training/exp0/lr.png"/>
+<img src="experiments/exp0/loss.png"/>
+<img src="experiments/exp0/lr.png"/>
 
 #### Reference experiment #2
 Data augmentation is added to improve accuracy.
-<img src="training/exp1/loss.png"/>
-<img src="training/exp1/lr.png"/>
+<img src="experiments/exp1/loss.png"/>
+<img src="experiments/exp1/lr.png"/>
 
 #### Reference experiment #3
 Adam optimizer is introduced with constant learning rate.
-<img src="training/exp2/loss.png"/>
-<img src="training/exp2/lr.png"/>
+<img src="experiments/exp2/loss.png"/>
+<img src="experiments/exp2/lr.png"/>
 
 #### Reference experiment #4
-Parameter tuning.
-<img src="training/exp3/loss.png"/>
-<img src="training/exp3/lr.png"/>
-<img src="training/exp3/acc.png"/>
+Parameters tuning.
+<img src="experiments/exp3/loss.png"/>
+<img src="experiments/exp3/lr.png"/>
+<img src="experiments/exp3/acc.png"/>
 
 #### Reference experiment #5
-Parameter tuning.
-<img src="training/exp4/loss.png"/>
-<img src="training/exp4/acc.png"/>
+Parameters tuning.
+<img src="experiments/exp4/loss.png"/>
+<img src="experiments/exp4/acc.png"/>
 
 ## Improve on the reference
 ### SGD optimization algorithm
