@@ -1,0 +1,3 @@
+[submodule "project_3"]
+	path = project_3
+	url = https://github.com/udacity/SFND_Lidar_Obstacle_Detection
