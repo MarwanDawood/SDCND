@@ -35,8 +35,8 @@ Similar in the evaluation, the observation of accuracy will help determining if 
 13. Improve the performance.
 
 ### Monitoring the GPU and killing processes
-`sudo fuser -v /dev/nvidia0`
-`sudo kill -9 <PID>`
+`sudo fuser -v /dev/nvidia0`\
+`sudo kill -9 <PID>`\
 `nvidia-smi`
 
 ### Importance of object detection in SDC:

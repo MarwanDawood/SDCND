@@ -2,7 +2,7 @@
 
 Please use this starter template to answer the following questions:
 
-## 1. Write a short recap of the four tracking steps and what you implemented there (filter, track management, association, camera fusion). Which results did you achieve? Which part of the project was most difficult for you to complete, and why?
+### 1. Write a short recap of the four tracking steps and what you implemented there (filter, track management, association, camera fusion). Which results did you achieve? Which part of the project was most difficult for you to complete, and why?
 ### Step #1:
   The target was to extract the range image from the top-mounted LiDAR sensor, then extract the intensity and the range channels afterwards stack them in order to be viewed as a 2D image using OpenCV. The point-cloud frames of this range image is then converted into 3D image using Open3d.
 
@@ -49,8 +49,8 @@ Please use this starter template to answer the following questions:
 ### Step #4:
   Calculate precision and recall to understand system performance.
 
-## 2. Do you see any benefits in camera-lidar fusion compared to lidar-only tracking (in theory and in your concrete results)?
+### 2. Do you see any benefits in camera-lidar fusion compared to lidar-only tracking (in theory and in your concrete results)?
 Using camera-LiDAR helps eleminating ghost objects, detects traffic signs besides objects color.
 
-## 3. Which challenges will a sensor fusion system face in real-life scenarios? Did you see any of these challenges in the project?
+### 3. Which challenges will a sensor fusion system face in real-life scenarios? Did you see any of these challenges in the project?
 Real-time processing is a challenge I noticed during the project development.

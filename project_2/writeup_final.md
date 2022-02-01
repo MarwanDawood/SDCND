@@ -2,7 +2,7 @@
 
 Please use this starter template to answer the following questions:
 
-## 1. Write a short recap of the four tracking steps and what you implemented there (filter, track management, association, camera fusion). Which results did you achieve? Which part of the project was most difficult for you to complete, and why?
+### 1. Write a short recap of the four tracking steps and what you implemented there (filter, track management, association, camera fusion). Which results did you achieve? Which part of the project was most difficult for you to complete, and why?
 ### Filter:
 Implemented Extended Kalman filter to predict and update tracked objects based on non-linear/linear measurements. RMSE shows high error in the start since the position is unknown in the begining, afterwards the RMSE goes lower as a result of track history.
 ![kalman-filter](img/30.png "kalman-filter]")
@@ -19,7 +19,7 @@ Implemented association matrix that links the measurement to the related unassig
 Implemented FOV check in addition to initializing camera measurements. RMSE is low and only confirmed tracks are concluded at the end of the simulation.
 ![camera-fusion](img/33.png "camera-fusion]")
 
-## 2. Do you see any benefits in camera-lidar fusion compared to lidar-only tracking (in theory and in your concrete results)?
+### 2. Do you see any benefits in camera-lidar fusion compared to lidar-only tracking (in theory and in your concrete results)?
 ### In theory:
 The RMSE and the amout of detected ghosts shall decrease. The track states shall be decided faster since the covariance would be smaller as a result of using 2 snesors.
 ### In practice:
@@ -33,10 +33,10 @@ To convert png images into video, use this command
 - ![lidar-only-video](img/lidar_tracking_results.avi "lidar-only-video]")
 - ![lidar-camera-video](img/lidar_camera_tracking_results.avi "lidar-camera-video]")
 
-## 3. Which challenges will a sensor fusion system face in real-life scenarios? Did you see any of these challenges in the project?
+### 3. Which challenges will a sensor fusion system face in real-life scenarios? Did you see any of these challenges in the project?
 Camera calibration is one of the challenges.
 
-## 4. Can you think of ways to improve your tracking results in the future?
+### 4. Can you think of ways to improve your tracking results in the future?
 1. Use of more optimal distance calculation algorithm such as GNN or PDA.
 2. Include z-axis in the calculations for better track estimation.
 3. Fuse the data from multiple LiDAR sources.
@@ -53,3 +53,5 @@ Camera calibration is one of the challenges.
 
 - A reference link for understanding Sensor Fusion and Object Tracking:\
   https://www.mathworks.com/videos/series/understanding-sensor-fusion-and-tracking.html
+
+- [Waymo dataset structure](Waymo_dataset_structure.txt)
