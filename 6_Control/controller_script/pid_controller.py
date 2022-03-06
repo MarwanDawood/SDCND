@@ -12,13 +12,13 @@
 #
 # Only modify code at the bottom! Look for the TODO
 # ------------
- 
+
 import random
 import numpy as np
 import matplotlib.pyplot as plt
 
 # ------------------------------------------------
-# 
+#
 # this is the Robot class
 #
 
@@ -102,7 +102,7 @@ class Robot(object):
 #
 # run - does a single control run
 
-# previous P controller
+# P controller
 def run_p(robot, tau, n=100, speed=1.0):
     x_trajectory = []
     y_trajectory = []
@@ -114,10 +114,10 @@ def run_p(robot, tau, n=100, speed=1.0):
         y_trajectory.append(robot.y)
     return x_trajectory, y_trajectory
 
+# PD controller
 def run_pd(robot, tau_p, tau_d, n=100, speed=1.0):
     x_trajectory = []
     y_trajectory = []
-    # TODO: your code here
     cte = robot.y
     for i in range(n):
         cte_old = cte
@@ -129,10 +129,10 @@ def run_pd(robot, tau_p, tau_d, n=100, speed=1.0):
         y_trajectory.append(robot.y)
     return x_trajectory, y_trajectory
 
+# PID controller
 def run_pdi(robot, tau_p, tau_d, tau_i, n=100, speed=1.0):
     x_trajectory = []
     y_trajectory = []
-    # TODO: your code here
     cte = robot.y
     int_cte = 0
     for i in range(n):
@@ -146,7 +146,9 @@ def run_pdi(robot, tau_p, tau_d, tau_i, n=100, speed=1.0):
         y_trajectory.append(robot.y)
     return x_trajectory, y_trajectory
 
-def twiddle(tol=0.2): 
+# Twiddle algorithm to tune PID parameters based on error
+def twiddle(tol=0.2):
+    #initialize parameters with 0 and adjust them as per the cost function
     p = [0, 0, 0]
     dp = [1, 1, 1]
     robot = make_robot()
@@ -188,11 +190,8 @@ def make_robot():
     return robot
 
 # NOTE: We use params instead of tau_p, tau_d, tau_i
+# error (cost) function for PID controller
 def run_pdi_err(robot, params, n=100, speed=1.0):
-
-    # experiements
-    #params[2] = 0.0
-    
     x_trajectory = []
     y_trajectory = []
     err = 0
@@ -213,8 +212,11 @@ def run_pdi_err(robot, params, n=100, speed=1.0):
 
 fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(8, 8))
 
+#twiddle calls the cost function which in turn runs 100 times to minimize errors
 params, err = twiddle()
 print("Final twiddle error = {}".format(err))
+print("P=", params[0], " I=", params[2], " D=", params[1])
+
 robot = make_robot()
 x_trajectory, y_trajectory, err = run_pdi_err(robot, params)
 n = len(x_trajectory)
@@ -240,9 +242,9 @@ ax2.plot(p_x_trajectory, p_y_trajectory, 'b', label='P')
 ax1.plot(x_trajectory, np.zeros(n), 'r', label='reference')
 ax2.plot(x_trajectory, np.zeros(n), 'r', label='reference')
 
-ax1.set_xlabel('t')
+ax1.set_xlabel('time')
 ax1.set_ylabel('CTE')
-ax2.set_xlabel('t')
+ax2.set_xlabel('time')
 ax2.set_ylabel('CTE')
 
 plt.legend(loc="upper right")
