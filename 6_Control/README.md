@@ -1,7 +1,7 @@
 ## Add the plots to your report and explain them (describe what you see)
 ### Static car
 After setting up the environment, the car can be seen static in the scene.
-![static-car](pid_controller/screenshot/control_1.PNG "static-car]")
+![static-car](pid_controller/screenshot/static.PNG "static-car]")
 
 ## What is the effect of the PID according to the plots, how each part of the PID affects the control command?
 After applying the PID controller to seering and throttle, there were several failed attempts that ended up by going out of the road and colliding with wall, tree or other cars.
@@ -15,15 +15,26 @@ PID hyperparameters tuning can be done manually as well as using the Twiddle alg
 | Ki | 0.0001   | 0.002 |
 | Kd | 1.0      | 0.0   |
 
-More information and a script to show the effect of hyperparamaters can be found [here](controller_script).
+More information and a script to show the effect of hyperparamaters tuning can be found [here](controller_script).
 
-The plots of output and error for steering is shown below, there is overshooting that can be solved according to the previously mentioned table.
+### Experiment 1
+The plots of output and error for steering is shown below, there is overshooting that can be solved by increasing Kp and Ki and decreasing Kd. \
+![steer3](pid_controller/screenshot/steer3.PNG "steer3]")
+
+The plots of output and error for throttle is shown below, there is Steady-state error that can be solved by decreasing Kp and Ki. \
+![throttle3](pid_controller/screenshot/throttle3.PNG "throttle3]")
+
+The vehicle controller managed to move the vehicle in a correct straight line with slight manouver to the left for about 1.5s, unfortunately the vehicle collides from front with the front vehicle. \
+![collision3](pid_controller/screenshot/collision3.PNG "collision3]")
+
+### Experiemnt 2
+The plots of output and error for steering is shown below, there is overshooting that can be solved by increasing Kp and Ki and decreasing Kd according to the previously mentioned table in controller script. \
 ![steer4](pid_controller/screenshot/steer4.PNG "steer4]")
 
-The plots of output and error for throttle is shown below, there is Steadystate error and fast rise time that can be solved according to the previously mentioned table.
+The plots of output and error for throttle is shown below, there is Steady-state error and fast rise time that can be solved by decreasing Kp and Ki\
 ![throttle4](pid_controller/screenshot/throttle4.PNG "throttle4]")
 
-The vehicle controller managed to move the vehicle in a correct straight line with slight manouver to the left, unfortunately the vehicle collides laterally with the front vehicle but this can be resolved by tuning the hyperparameters.
+The vehicle controller managed to move the vehicle in a correct straight line with slight manouver to the left, unfortunately the vehicle collides laterally with the front vehicle. There is a room for hyperparameter tuning and best way is to use an algorithm like Twiddle for that. \
 ![collision4](pid_controller/screenshot/collision4.PNG "collision4]")
 
 ## How would you design a way to automatically tune the PID parameters?
