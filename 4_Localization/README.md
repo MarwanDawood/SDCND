@@ -1,6 +1,6 @@
 # Localization
 ## Background
-GPS horizontal position fixes are typically accurate to about 15 meters. However, GPS fixes under a clear view of the sky are on average accurate to about 5 meters (16 ft) horizontally. Therefore there is a need to create an algorithm to increase the accuracy of position localization relative to the environment.
+GPS horizontal position fixes are typically accurate to about 15 meters. However, GPS fixes under a clear view of the sky are on average accurate to about 5 meters horizontally. Therefore there is a need to create an algorithm to increase the accuracy of position localization relative to the environment.
 This can be simulated using CARLA simulator, The point cloud can be generated from simulated sensors that are fused into a sensor fusion system.
 
 ## Agorithms
