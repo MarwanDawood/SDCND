@@ -156,7 +156,7 @@ Parts of this project are based on the following repositories:
   3. the side mirrors.
   4. the tyres.
 
-![car-queue](img/queue.png "car-queue]")
+![car-queue](img/queue.gif "car-queue]")
 
 
 ### Step 2:
@@ -173,7 +173,7 @@ Parts of this project are based on the following repositories:
   The detected objects in BEV coordinate space must be converted into metric coordinates in vehicle space (3D bounding boxes).
 
 ### Step 4:
-  Calculate precision and recall to understand system performance.
+Calculate precision and recall to understand system performance.
 
 ## Benefits in camera-lidar fusion compared to lidar-only tracking
 Using camera-LiDAR helps eleminating ghost objects, detects traffic signs besides objects color.
@@ -183,10 +183,10 @@ Real-time processing is a challenge which I noticed during the project developme
 
 # Final writeup: Track 3D-Objects Over Time
 
-Lidar sensor fusion
+Lidar sensor fusion:
 ![lidar-only-video](img/lidar_tracking_results.gif "lidar-only-video]")
 
-Lidar and camera sensor fusion
+Lidar and camera sensor fusion:
 ![lidar-camera-video](img/lidar_camera_tracking_results.gif "lidar-camera-video]")
 
 ## Short recap
