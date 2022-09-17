@@ -184,9 +184,11 @@ Real-time processing is a challenge which I noticed during the project developme
 # Final writeup: Track 3D-Objects Over Time
 
 Lidar sensor fusion:
+
 ![lidar-only-video](img/lidar_tracking_results.gif "lidar-only-video]")
 
 Lidar and camera sensor fusion:
+
 ![lidar-camera-video](img/lidar_camera_tracking_results.gif "lidar-camera-video]")
 
 ## Short recap
