@@ -1,0 +1,31 @@
+IMU: Inertial Measurement Unit: consists of accelorometer, gyro, magnetometer.. mounted in each vehicle axis
+roll pitch yaw
+G-force -> gravitational force
+variance
+covariance (is a varaince but in 2D) -> kalman filter
+Gaussian Distribution -> easy to describe, can be described by only mean (mu) and variance
+SLAM -> Simultaneous Localization And Mapping
+LIDAR, an acronym of light detection and ranging
+http://robotsforroboticists.com/lidar-vs-radar/
+
+v: random vector (measurement noise) -> white Gaussian Distribution (mean is zero, steps in time has no covariance) -> Brownian motion
+w: random vector (processing noise) -> white Gaussian Distribution
+F: state transition matrix -> undesired side effect to each of system states
+x: state vector -> desired terms to observe
+u: control input matrix
+B: control input matrix which applies of each control input parameter in the vector u -> Change due to control input matrix
+H: transition matrix that maps the state vector parameters into measurement domain -> output
+z: vector of measurement
+state space representation for processing model: X = F.X-1 + B.u + w
+state space representation for measurement model: z = H.x + v
+
+A. Kalman Filter has 2 stages:
+ 1. Prediction
+ 2. Fusion or Correction
+
+B. Extended Kalman filter -> converts a non-linear system to linear system using first derivative term of Taylor series, the creates Jacobian matrices (derivative matrices), problem is that the Gaussian distribution of the newly created linear system differs than the one if you created with a method of sampling and interpolation.
+Big covariance -> not sure about my measurement system -> Kalman gain approaches to zero -> take processing system value
+
+C. Unscented Kalman filter -> non-smell transformation of Kalman filter
+ uses sigma points to capture true distribution and can propagate these non-linear points to construct a Gaussian distribution close to the original non-linear one
+
